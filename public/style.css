@@ -1,0 +1,142 @@
+/* this file is loaded by index.html and styles the page */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 2em 1em;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+}
+
+form {
+  background-color: #eee;
+  display: grid;
+  grid-gap: 1em;
+  padding: 1em;
+  max-width: 40ch;
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form button {
+  background-color: #bbbbf2;
+  border: 2px solid currentColor;
+  border-radius: .25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: lavender;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+
+#process_info {
+  visibility: hidden;
+  text-align: center;
+  display: flex;
+  max-width: 40ch;
+  justify-content: space-around;
+}
+
+#status_info {
+  line-height: 0;
+  margin-top: 10px;
+}
+
+.magenta, .blue, .dark {
+  stop-opacity: 1;
+}
+
+.darken {
+  animation: make_darker 2s infinite;
+}
+
+.lighten {
+  animation: make_lighter 2s infinite;
+}
+
+#preloader {
+  margin: 20px auto;
+}
+
+#inner-circunference {
+  animation: flicker 2s infinite;
+}
+
+#info {
+  animation: hide_and_show 2s infinite;
+  animation-timing-function: step-end;
+}
+
+@keyframes flicker {
+  0% {
+    fill: limegreen;
+  }
+  50% {
+    fill: gray;
+  }
+  100% {
+    fill: limegreen;
+  }
+}
+
+@keyframes hide_and_show {
+  0% {
+    fill: #233138;
+  }
+  98% {
+    fill: white;
+  }
+  100% {
+    fill: #233138;
+  }
+}
+
+@keyframes make_darker {
+  0% {
+    stop-color: rgb(50, 100, 250);
+    }
+  50% {
+    stop-color: rgb(0, 0, 0);
+  }
+  100% {
+    stop-color: rgb(50, 100, 250);
+  }
+}
+
+@keyframes make_lighter {
+  0% {
+    stop-color: rgb(0, 0, 0)
+    }
+  50% {
+    stop-color: rgb(50, 100, 250);
+  }
+  100% {
+    stop-color: rgb(0, 0, 0);
+  }
+}

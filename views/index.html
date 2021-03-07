@@ -1,0 +1,112 @@
+<!-- This is a static file -->
+<!-- served from routes in routes.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>File Metadata Parser</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+  </head>
+  <body onunload="terminateProcess()">
+    <header>
+      <h2><span id="logo1"><svg height="20" width="40">
+  <defs>
+    <lineargradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(0, 0, 0)" class="dark" />
+      <stop offset="100%" class="magenta" style="stop-color:rgb(255, 0, 255)"/>
+    </lineargradient>
+    <lineargradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" class="magenta" style="stop-color:rgb(255, 0, 255)"/>
+      <stop offset="100%" class="blue" style="stop-color:rgb(50, 100, 250)"/>
+    </lineargradient>
+  </defs>
+  <path d="M0 0 L20 10 L0 20 Z" fill="url(#grad1)" />
+  <path d="M20 10 L40 0 L40 20 Z" fill="url(#grad2)" />
+  Sorry, your browser does not support inline SVG.
+</svg></span> File Metadata Parser <span><svg height="20" width="40" id="logo2">
+  <defs>
+    <lineargradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" class="blue" style="stop-color:rgb(50, 100, 250)"/>
+      <stop offset="100%" class="magenta" style="stop-color:rgb(255, 0, 255)"/>
+    </lineargradient>
+    <lineargradient id="grad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" class="magenta" style="stop-color:rgb(255, 0, 255)"/>
+      <stop offset="100%" class="dark" style="stop-color:rgb(0, 0, 0);" />
+    </lineargradient>
+  </defs>
+  <path d="M0 0 L20 10 L0 20 Z" fill="url(#grad3)" />
+  <path d="M20 10 L40 0 L40 20 Z" fill="url(#grad4)" />
+  Sorry, your browser does not support inline SVG.
+</svg></span></h2>
+    </header>
+
+    <main>
+      <h2>Oh, Hi there,</h2>
+
+      <p>With this parser you can view the name, size, type and encoding of your sent file in JSON format:</p>
+      
+        <form action="/api/fileanalyse" method="post" enctype="multipart/form-data" onsubmit="upload()">
+            New File
+            <input name="upfile" type="file" required>
+          <button type="submit" id="submit-file">Add File</button>
+          <svg width="120" height="0" id="preloader" style="visibility: hidden;">
+            <g id="loading-group">
+              <path d="
+                    M 2 25
+                    A 23 23 0 0 0 48 25
+                    A 23 23 0 0 0 2 25" stroke="black" stroke-width="2"
+              fill="none"/>
+              <path d="M 10 25
+                    A 15 15 0 0 0 40 25
+                    A 15 15 0 0 0 10 25" stroke="gray" stroke-width="2" id="inner-circunference"/>
+              <circle r="3" fill="#cf615f" >  
+             <animateMotion dur="2s" repeatCount="indefinite"
+                  path="M 44 25
+                    A 19 19 0 0 1 6 25
+                    A 19 19 0 0 1 44 25" />
+              </circle>
+              <text x="0" y="80" fill="#233138" id="info">Loading...</text>
+            Sorry, your browser does not support inline SVG.
+          </g>
+        </svg>
+        </form>
+      
+
+
+    </main>
+
+    <footer>Made with dedication with my bare hands out of pure bits, ;)</footer>
+    
+  </body>
+  
+<script>
+  
+  var preloader = document.querySelector("#preloader");
+  var init_btn = document.querySelector("#submit-file");
+  
+    function upload() {
+      
+      var disabled = document.createAttribute("disabled");
+      init_btn.setAttributeNode(disabled);
+
+      preloader.setAttribute("height", 100);
+      preloader.style.visibility = "visible";
+
+      var dark_shades = document.querySelectorAll(".dark");
+      var blue_shades = document.querySelectorAll(".blue");   
+
+      for(let i = 0; i < 2; i++) {
+        dark_shades[i].setAttribute("class", dark_shades[i].getAttribute("class") + " lighten");
+        blue_shades[i].setAttribute("class", blue_shades[i].getAttribute("class") + " darken");
+      }
+    }
+  
+</script>
+</html>
